@@ -6,12 +6,17 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 
+import Tooltip from '@mui/material/Tooltip';
+
 
 function Header() {
+
+  const intro =
+    'A Resume Builder App is an essential tool for job seekers looking to create polished and effective resumes. By combining ease of use with professional design options, these apps empower users to present their qualifications confidently and increase their chances of landing job interviews.';
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" sx={{backgroundColor:"purple"}}>
+        <AppBar position="static" sx={{ backgroundColor: 'purple' }}>
           <Toolbar>
             <IconButton
               size="large"
@@ -20,15 +25,27 @@ function Header() {
               aria-label="menu"
               sx={{ mr: 2 }}
             >
-              <img src="" alt="" />
-           
+              <img
+                width="60px"
+                src="https://cdn3d.iconscout.com/3d/premium/thumb/approved-cv-3d-icon-png-download-8239694.png"
+                alt=""
+              />
             </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 , fontWeight:"bold" }}>
-
-              <link to={'/'} style={{textDecoration:"none",color:"blue"}} />
-              Resume builder
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1, fontWeight: 'bold' }}
+            >
+              <link
+                to={'/'}
+                style={{ textDecoration: 'none', color: 'blue' }}
+              />
+              Resume-builder
             </Typography>
-            <Button color="inherit">About</Button>
+
+            <Tooltip title={intro}>
+              <Button color="inherit">About</Button>
+            </Tooltip>
           </Toolbar>
         </AppBar>
       </Box>
