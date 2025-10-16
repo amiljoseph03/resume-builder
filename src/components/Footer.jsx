@@ -12,18 +12,21 @@ function Footer() {
           position: 'fixed',
           bottom: 0,
           width: '100%',
-          height: '20%',
+
+          overflowY: 'auto',
         }}
       >
         <h3>Contact us</h3>
         <p>resumebuilder@gmail.com</p>
         <p>7902514737</p>
         <h3>Connect with us</h3>
-        <i class="fa-brands fa-whatsapp"></i>
-        <i class="fa-brands fa-instagram"></i>
-        <i class="fa-brands fa-linkedin"></i>
+        <div style={{ fontSize: '1.5rem' }}>
+          <i className="fa-brands fa-whatsapp" style={{ margin: '0 10px' }}></i>
+          <i className="fa-brands fa-instagram"style={{ margin: '0 10px' }}></i>
+          <i className="fa-brands fa-linkedin" style={{ margin: '0 10px' }}></i>
+        </div>
 
-        <p>© {new Date().getFullYear()} MyWebsite. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} ResumeBuilder. All rights reserved.</p>
       </footer>
     </div>
   );
