@@ -7,6 +7,8 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 
 import Tooltip from '@mui/material/Tooltip';
+import { Link } from 'react-router-dom';
+
 
 
 function Header() {
@@ -36,11 +38,11 @@ function Header() {
               component="div"
               sx={{ flexGrow: 1, fontWeight: 'bold' }}
             >
-              <link
+              <Link 
                 to={'/'}
-                style={{ textDecoration: 'none', color: 'blue' }}
-              />
-              Resume-builder
+                style={{ textDecoration: 'none', color: 'WHITE' }}
+              > Resume-builder</Link>
+             
             </Typography>
 
             <Tooltip title={intro}>
