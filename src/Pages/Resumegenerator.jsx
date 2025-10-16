@@ -2,8 +2,7 @@ import React from 'react'
 
 function Resumegenerator() {
   return (
-    <div>
-      
+    <div><h1>resume generator</h1>
     </div>
   )
 }
