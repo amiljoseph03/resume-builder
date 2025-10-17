@@ -18,11 +18,10 @@ function Landingpage() {
             <h3>Designed to get hired</h3>
             <h4>yor skills, your story</h4>
 
-            <Link to={'/resume-generator'}>
-              <button sx={{ backgrondColor: 'brown' }} varient="contained">
-                {' '}
-                make your resume
-              </button>
+            <Link to="/resume-generator">
+              <Button sx={{ backgroundColor: 'brown' }} variant="contained">
+                Make Your Resume
+              </Button>
             </Link>
           </div>
         </div>
@@ -46,7 +45,11 @@ function Landingpage() {
           </div>
 
           <div className="col-12 col-md-6">
-            <img src="" alt="" width={'70%'} />
+            <img
+              src=" https://i.pinimg.com/1200x/04/47/2d/04472db6d1eadaf4b6e587fa438c3c1f.jpg"
+              alt=""
+              width={'70%'}
+            />
           </div>
         </div>
       </section>
@@ -83,22 +86,26 @@ function Landingpage() {
             <div className="col-3">
               <img
                 src="https://i.pinimg.com/736x/4b/f6/1f/4bf61f7bec0d6e6d35644df9f76e210e.jpg"
-                alt="" />
+                alt=""
+              />
             </div>
             <div className="col-3">
               <img
                 src="https://i.pinimg.com/736x/4b/f6/1f/4bf61f7bec0d6e6d35644df9f76e210e.jpg"
-                alt="" />
+                alt=""
+              />
             </div>
             <div className="col-3">
               <img
                 src="https://i.pinimg.com/736x/4b/f6/1f/4bf61f7bec0d6e6d35644df9f76e210e.jpg"
-                alt="" />
+                alt=""
+              />
             </div>
             <div className="col-3">
               <img
                 src="https://i.pinimg.com/736x/4b/f6/1f/4bf61f7bec0d6e6d35644df9f76e210e.jpg"
-                alt="" />
+                alt=""
+              />
             </div>
           </div>
         </div>

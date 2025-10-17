@@ -63,7 +63,7 @@ import { Route ,Routes} from 'react-router-dom'
 
 
 import Landingpage from "./Pages/Landingpage"
-import Resumegenerator from './Pages/Resumegenerator';
+import Resumegenerator from "./Pages/Resumegenerator"
 import Forms from "./Pages/Forms"
 import History from "./Pages/History"
 import Pnf from "./Pages/Pnf"
@@ -79,7 +79,7 @@ function App(){
          
           <Route path='' element={<Landingpage />} />
 
-          <Route path="resume-generator" element={<Resumegenerator />} />
+          <Route path="/resume-generator" element={<Resumegenerator />} />
           <Route path="forms" element={<Forms />} />
           <Route path="history" element={<History />} />
           <Route path="/*" element={<Pnf />} />
