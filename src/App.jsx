@@ -70,22 +70,24 @@ import Pnf from "./Pages/Pnf"
 
 
 function App(){
-  return(
+  return (
     <>
+   
+        <Header />
 
-      <Header/>
+        <Routes>
+         
+          <Route path='' element={<Landingpage />} />
 
-      <Routes>
-        <Route path='' element={Landingpage}/>
-        <Route path='resume-generator' element={<Resumegenerator/>}/>
-        <Route path='forms' element={<Forms/>}/>
-        <Route path='history' element={<History/>}/>
-        <Route path='/*' element={<Pnf/>}/>
-      </Routes>
-      <Footer/>
-
+          <Route path="resume-generator" element={<Resumegenerator />} />
+          <Route path="forms" element={<Forms />} />
+          <Route path="history" element={<History />} />
+          <Route path="/*" element={<Pnf />} />
+        </Routes>
+        <Footer />
+      
     </>
-  )
+  );
 }
 
 export default App

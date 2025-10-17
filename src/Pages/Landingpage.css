@@ -1,0 +1,13 @@
+body{
+    overflow: hidden;
+}
+
+#bg1{
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/035/592/452/small_2x/businessmen-team-brainstorming-and-discussing-at-office-meeting-flat-design-character-png.png');
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+
+    width: 100%;
+    height: 450px;
+}
