@@ -6,7 +6,10 @@ html, body {
   overflow-y: auto;
 }
 #bg1{
-    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/035/592/452/small_2x/businessmen-team-brainstorming-and-discussing-at-office-meeting-flat-design-character-png.png');
+    /* */
+    /* background-image: url('https://i.pinimg.com/736x/98/38/f0/9838f08e9bc16d64d3bdca0a3dea0e5f.jpg'); */
+       background-image: url('https://i.pinimg.com/1200x/04/47/2d/04472db6d1eadaf4b6e587fa438c3c1f.jpg');
+
     background-size: cover;
     background-position: top;
     background-attachment: fixed;
