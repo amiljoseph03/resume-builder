@@ -84,7 +84,7 @@ function App(){
           <Route path="history" element={<History />} />
           <Route path="/*" element={<Pnf />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       
     </>
   );
