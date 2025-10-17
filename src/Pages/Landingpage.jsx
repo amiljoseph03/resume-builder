@@ -46,9 +46,9 @@ function Landingpage() {
 
           <div className="col-12 col-md-6">
             <img
-              src=" https://i.pinimg.com/1200x/04/47/2d/04472db6d1eadaf4b6e587fa438c3c1f.jpg"
+              src=" https://i.pinimg.com/736x/63/dc/84/63dc8433e79b714f154c38ba3a1c1470.jpg"
               alt=""
-              width={'70%'}
+              width={'70%'} height={'80%'}
             />
           </div>
         </div>
@@ -79,33 +79,53 @@ function Landingpage() {
           </div>
 
           {/* <div className="col-12 col-md-6"></div> */}
-        </div>
 
-        <div className="col-12 col-md-6">
-          <div className="row">
-            <div className="col-3">
-              <img
-                src="https://i.pinimg.com/736x/4b/f6/1f/4bf61f7bec0d6e6d35644df9f76e210e.jpg"
-                alt=""
-              />
-            </div>
-            <div className="col-3">
-              <img
-                src="https://i.pinimg.com/736x/4b/f6/1f/4bf61f7bec0d6e6d35644df9f76e210e.jpg"
-                alt=""
-              />
-            </div>
-            <div className="col-3">
-              <img
-                src="https://i.pinimg.com/736x/4b/f6/1f/4bf61f7bec0d6e6d35644df9f76e210e.jpg"
-                alt=""
-              />
-            </div>
-            <div className="col-3">
-              <img
-                src="https://i.pinimg.com/736x/4b/f6/1f/4bf61f7bec0d6e6d35644df9f76e210e.jpg"
-                alt=""
-              />
+          <div className="col-12 col-md-6">
+            <div className="row">
+              <div className="col-3">
+                <img
+                  style={{
+                    width: '100px',
+                    height: '100px',
+                    objectFit: 'cover',
+                  }}
+                  src="https://i.pinimg.com/736x/4b/f6/1f/4bf61f7bec0d6e6d35644df9f76e210e.jpg"
+                  alt=""
+                />
+              </div>
+              <div className="col-3">
+                <img
+                  style={{
+                    width: '100px',
+                    height: '100px',
+                    objectFit: 'cover',
+                  }}
+                  src="https://i.pinimg.com/736x/3c/63/1b/3c631b97815217aaa9716d368feb990a.jpg"
+                  alt=""
+                />
+              </div>
+              <div className="col-3">
+                <img
+                  style={{
+                    width: '100px',
+                    height: '100px',
+                    objectFit: 'cover',
+                  }}
+                  src="https://i.pinimg.com/736x/5d/ea/c3/5deac3296927862d06e73661c1bb7720.jpg"
+                  alt=""
+                />
+              </div>
+              <div className="col-3">
+                <img
+                  style={{
+                    width: '100px',
+                    height: '100px',
+                    objectFit: 'cover',
+                  }}
+                  src="https://i.pinimg.com/736x/56/94/e1/5694e173bb4a740507c234167c609479.jpg"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
         </div>
