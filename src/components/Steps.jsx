@@ -140,6 +140,10 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Stack } from '@mui/material';
+
+import TextField from '@mui/material/TextField';
+
 
 export default function HorizontalLinearStepper() {
   const steps = [
@@ -339,7 +343,7 @@ const renderStepContent=(step)=>{
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
            
            <Box>
-
+            {renderStepContent(activeStep)}
            </Box>
            
             <Button
