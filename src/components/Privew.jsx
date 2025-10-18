@@ -5,6 +5,9 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
 
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+
 function Privew() {
   return (
     <div>
@@ -23,7 +26,7 @@ function Privew() {
               Github
             </Link>
             <Link href="" target="_blank">
-              Github
+              Linkedin
             </Link>
             <Link href="" target="_blank">
               Github
@@ -48,6 +51,13 @@ function Privew() {
           <Typography variant="body2" align="center" mb={4}></Typography>
 
           <Divider>Skills</Divider>
+
+          <Stack spacing={2} direction="row" sx={{padding:'10px', gap:"10px", flexWrap:'wrap'}}>
+           
+            <Button variant="contained">Contained</Button>
+            
+           
+          </Stack>
         </Paper>
       </Box>
     </div>

@@ -22,7 +22,7 @@ function Forms() {
           <div className='col-6'>
             <Steps/>
             <div className='col-6'>
-              <Privew/>
+              {/* <Privew/> */}
             </div>
           </div>
         </div>
