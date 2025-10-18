@@ -184,6 +184,43 @@ export default function HorizontalLinearStepper() {
 
   const handleReset = () => setActiveStep(0);
 
+
+
+
+const renderStepContent=(step)=>{
+  switch(step){
+    case 0: return (
+      <div>
+        <h3>personal detials</h3>
+        <div className="d-flex row p-3">
+          <TextField id="standard-basic" label="job title" variant="standard" />
+          <TextField id="standard-basic" label="job title" variant="standard" />
+        </div>
+      </div>
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <Box sx={{ width: '100%' }}>
       <Stepper activeStep={activeStep}>
@@ -222,6 +259,11 @@ export default function HorizontalLinearStepper() {
         <>
           <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+           
+           <Box>
+
+           </Box>
+           
             <Button
               color="inherit"
               disabled={activeStep === 0}
