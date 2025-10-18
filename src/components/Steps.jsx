@@ -198,6 +198,84 @@ const renderStepContent=(step)=>{
         </div>
       </div>
     );
+    case 1: return (
+      <div>
+        <h3>Contact detials</h3>
+        <div className="d-flex row p-3">
+          <TextField id="standard-basic" label="email" variant="standard" />
+          <TextField id="standard-basic" label="phone" variant="standard" />
+          <TextField id="standard-basic" label="github" variant="standard" />
+          <TextField id="standard-basic" label="linkedin" variant="standard" />
+          <TextField id="standard-basic" label="portfolio" variant="standard" />
+        </div>
+      </div>
+    );
+
+    case 2: return (
+      <div>
+        <h3>Educational detials</h3>
+        <div className="d-flex row p-3">
+          <TextField id="standard-basic" label="course" variant="standard" />
+          <TextField id="standard-basic" label="college" variant="standard" />
+          <TextField id="standard-basic" label="university" variant="standard" />
+          <TextField id="standard-basic" label="year of passout" variant="standard" />
+        </div>
+      </div>
+    );
+
+    case 3 : return (
+      <div>
+        <h3>Professional detials</h3>
+        <div className="d-flex row p-3">
+          <TextField id="standard-basic" label="job or internship" variant="standard" />
+          <TextField id="standard-basic" label="company name" variant="standard" />
+          <TextField id="standard-basic" label="location" variant="standard" />
+          <TextField id="standard-basic" label="duration" variant="standard" />
+        
+        </div>
+      </div>
+    );
+
+    case 4: return (
+      <div>
+        <h3>skills</h3>
+        <Box sx={{width: '100%'}}>
+          <Stack
+            spacing={2}
+            direction="row"
+            sx={{ padding: '10px', gap: '10px', flexWrap: 'wrap' }}
+          >
+            <Button variant="contained">Contained</Button>
+          </Stack>
+
+          <div>
+            <h5>Suggestions : </h5>
+          </div>
+          <div>
+            <h5>Added Skills : </h5>
+          </div>
+        </Box>
+      </div>
+    );
+
+    case 5 : return (
+      <div>
+        <h3>Professional Summary</h3>
+        <div className="d-flex row p-3">
+         
+          <TextField id="standard-multiline-static"
+           label="write a short summary"
+           multiline
+           rows={4}
+           defaultValue="EG: I M A PASSIONATE............"
+            variant="standard"
+            VALUE="" />
+        
+        </div>
+      </div>
+    );
+
+    default : return Null
   }
 }
 
