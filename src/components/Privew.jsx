@@ -8,9 +8,36 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
+import { RiDownloadCloudFill } from 'react-icons/ri';
+import { CiEdit } from 'react-icons/ci';
+import { FaHistory } from 'react-icons/fa';
+import { IoArrowBackCircle } from 'react-icons/io5';
+
 function Privew() {
   return (
     <div>
+      <div className="d-flex justify-content-center align-items-center">
+        <button className=" btn text-primary fs-2">
+          <RiDownloadCloudFill />
+        </button>
+
+        {/* edit  */}
+
+        <button className=" btn text-primary fs-2">
+          <CiEdit />
+        </button>
+
+        {/* history  */}
+        <button className=" btn text-primary fs-2">
+          <FaHistory />
+        </button>
+
+        {/* back  */}
+        <button className=" btn text-primary fs-2">
+          <IoArrowBackCircle />
+        </button>
+      </div>
+
       <Box>
         <Paper elevation={5} id="result">
           <Typography variant="h4" align="center" component="h2">
@@ -52,11 +79,12 @@ function Privew() {
 
           <Divider>Skills</Divider>
 
-          <Stack spacing={2} direction="row" sx={{padding:'10px', gap:"10px", flexWrap:'wrap'}}>
-           
+          <Stack
+            spacing={2}
+            direction="row"
+            sx={{ padding: '10px', gap: '10px', flexWrap: 'wrap' }}
+          >
             <Button variant="contained">Contained</Button>
-            
-           
           </Stack>
         </Paper>
       </Box>
