@@ -15,7 +15,12 @@ import { CiEdit } from 'react-icons/ci';
 import { FaHistory } from 'react-icons/fa';
 import { IoArrowBackCircle } from 'react-icons/io5';
 
-import Edit from '.components./Edit';
+
+
+// import Edit from '.components./Edit';
+import Edit from './Edit';
+
+
 
 
 function Privew() {
