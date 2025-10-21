@@ -143,6 +143,9 @@ import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/material';
 
 import TextField from '@mui/material/TextField';
+import { RxCross2 } from 'react-icons/rx';
+
+
 
 
 export default function HorizontalLinearStepper() {
@@ -154,6 +157,13 @@ export default function HorizontalLinearStepper() {
     'Skills and Certification',
     'Review & Submit',
   ];
+
+
+
+const suggestionSkills=['React','Angular','Node','Angular','Javascript','Git','Express','Tailwind']
+
+
+
 
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
@@ -243,7 +253,7 @@ const renderStepContent=(step)=>{
     case 4: return (
       <div>
         <h3>skills</h3>
-        <Box sx={{width: '100%'}}>
+        <Box sx={{ width: '100%' }}>
           <Stack
             spacing={2}
             direction="row"
@@ -254,9 +264,28 @@ const renderStepContent=(step)=>{
 
           <div>
             <h5>Suggestions : </h5>
+
+            <div className="d-flex justify-content-between">
+              {suggestionSkills.map((skills) => (
+                // <Button varient='outlined'>{skills}</Button>
+                <Button variant="outlined">{skills}</Button>
+              ))}
+            </div>
           </div>
           <div>
             <h5>Added Skills : </h5>
+
+            <div className="d-flex justify-content-between">
+              <span
+                className="btn btn-primary d-flex justify-content-between
+              align-items-center"
+              >
+                Skills
+                <button className="btn text-light fs-5">
+                  <RxCross2 />
+                </button>
+              </span>
+            </div>
           </div>
         </Box>
       </div>
