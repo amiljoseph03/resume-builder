@@ -3,7 +3,9 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-import Link from '@mui/material/Link';
+// import Link from '@mui/material/Link';
+import { Link } from 'react-router-dom';
+
 
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -12,6 +14,9 @@ import { RiDownloadCloudFill } from 'react-icons/ri';
 import { CiEdit } from 'react-icons/ci';
 import { FaHistory } from 'react-icons/fa';
 import { IoArrowBackCircle } from 'react-icons/io5';
+
+import Edit from '.components./Edit';
+
 
 function Privew() {
   return (
@@ -23,18 +28,22 @@ function Privew() {
 
         {/* edit  */}
 
-        <button className=" btn text-primary fs-2">
-          <CiEdit />
-        </button>
+       <div>
+        <Edit/>
+       </div>
 
         {/* history  */}
         <button className=" btn text-primary fs-2">
-          <FaHistory />
+          <Link to={'/history '}>
+            <FaHistory />
+          </Link>
         </button>
 
         {/* back  */}
         <button className=" btn text-primary fs-2">
-          <IoArrowBackCircle />
+          <Link to={'/resume-generator'}>
+            <IoArrowBackCircle />
+          </Link>
         </button>
       </div>
 
