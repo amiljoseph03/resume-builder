@@ -7,6 +7,9 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { TextField } from '@mui/material';
+
+
 
 
 
@@ -23,6 +26,8 @@ const style = {
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+
+  overflowY:"auto",
 };
 
 
@@ -49,10 +54,48 @@ function Edit() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+       Edit detials
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            
+                   <h3>personal detials</h3>
+                   <div className="d-flex row p-3">
+                     <TextField id="standard-basic" label="job title" variant="standard" />
+                     <TextField id="standard-basic" label="job title" variant="standard" />
+                   </div>
+
+
+                    <h3>Contact detials</h3>
+                           <div className="d-flex row p-3">
+                             <TextField id="standard-basic" label="email" variant="standard" />
+                             <TextField id="standard-basic" label="phone" variant="standard" />
+                             <TextField id="standard-basic" label="github" variant="standard" />
+                             <TextField id="standard-basic" label="linkedin" variant="standard" />
+                             <TextField id="standard-basic" label="portfolio" variant="standard" />
+                           </div>
+
+
+
+                            <h3>Educational detials</h3>
+                                   <div className="d-flex row p-3">
+                                     <TextField id="standard-basic" label="course" variant="standard" />
+                                     <TextField id="standard-basic" label="college" variant="standard" />
+                                     <TextField id="standard-basic" label="university" variant="standard" />
+                                     <TextField id="standard-basic" label="year of passout" variant="standard" />
+                                   </div>
+
+
+
+
+                                     <h3>Professional detials</h3>
+                                           <div className="d-flex row p-3">
+                                             <TextField id="standard-basic" label="job or internship" variant="standard" />
+                                             <TextField id="standard-basic" label="company name" variant="standard" />
+                                             <TextField id="standard-basic" label="location" variant="standard" />
+                                             <TextField id="standard-basic" label="duration" variant="standard" />
+                                           
+                                           </div>
+                 
           </Typography>
         </Box>
       </Modal>
