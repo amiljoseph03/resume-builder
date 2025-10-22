@@ -17,11 +17,9 @@
 // //     'Review & Submit',
 // //   ];
 
-
 // //   const [activeStep, setActiveStep] = React.useState(0);
 // //   const [skipped, setSkipped] = React.useState(new Set());
 
-  
 // //   const isStepOptional = (step) => {
 // //     return step === 1;
 // //   };
@@ -41,7 +39,6 @@
 // //     setSkipped(newSkipped);
 // //   };
 
-  
 // //   const handleBack = () => {
 // //     setActiveStep((prevActiveStep) => prevActiveStep - 1);
 // //   };
@@ -64,7 +61,6 @@
 // //   const handleReset = () => {
 // //     setActiveStep(0);
 // //   };
-
 
 // //   return (
 // //     <div>
@@ -131,8 +127,6 @@
 // // }
 // // export default Steps;
 
-
-
 // import React from 'react';
 // import Box from '@mui/material/Box';
 // import Stepper from '@mui/material/Stepper';
@@ -144,9 +138,6 @@
 
 // import TextField from '@mui/material/TextField';
 // import { RxCross2 } from 'react-icons/rx';
-
-
-
 
 // // export default function HorizontalLinearStepper() {
 
@@ -161,12 +152,7 @@
 //     'Review & Submit',
 //   ];
 
-
-
 // const suggestionSkills=['React','Angular','Node','Angular','Javascript','Git','Express','Tailwind']
-
-
-
 
 //   const [activeStep, setActiveStep] = React.useState(0);
 //   const [skipped, setSkipped] = React.useState(new Set());
@@ -200,9 +186,6 @@
 //   };
 
 //   const handleReset = () => setActiveStep(0);
-
-
-
 
 // const renderStepContent=(step)=>{
 //   switch(step){
@@ -262,7 +245,7 @@
 //           <TextField id="standard-basic" label="company name" variant="standard" />
 //           <TextField id="standard-basic" label="location" variant="standard" />
 //           <TextField id="standard-basic" label="duration" variant="standard" />
-        
+
 //         </div>
 //       </div>
 //     );
@@ -312,7 +295,7 @@
 //       <div>
 //         <h3>Professional Summary</h3>
 //         <div className="d-flex row p-3">
-         
+
 //           <TextField id="standard-multiline-static"
 //            label="write a short summary"
 //            multiline
@@ -320,7 +303,7 @@
 //            defaultValue="EG: I M A PASSIONATE............"
 //             variant="standard"
 //             value="" />
-        
+
 //         </div>
 //       </div>
 //     );
@@ -329,26 +312,7 @@
 //   }
 // }
 
-
 // export default Steps;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //   return (
 //     <Box sx={{ width: '100%' }}>
@@ -388,11 +352,11 @@
 //         <>
 //           <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
 //           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-           
+
 //            <Box>
 //             {renderStepContent(activeStep)}
 //            </Box>
-           
+
 //             <Button
 //               color="inherit"
 //               disabled={activeStep === 0}
@@ -416,30 +380,6 @@
 //     </Box>
 //   );
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 import React from 'react';
 import Box from '@mui/material/Box';
@@ -516,8 +456,21 @@ function Steps({ userInput, setUserInput }) {
               <TextField
                 label="Full Name"
                 variant="standard"
-
                 //retrive input data
+                onChange={(e) =>
+                  setUserInput({
+                    ...userInput,
+                    personalDetails: {
+                      ...userInput.personalDetails,
+                      name: e.target.value,
+                    },
+                  })
+                }
+                value={userInput.personalDetails.name}
+              />
+              <TextField
+                label="Job Title"
+                variant="standard"
                 onChange={(e) =>
                   setUserInput({
                     ...userInput,
@@ -527,9 +480,10 @@ function Steps({ userInput, setUserInput }) {
                     },
                   })
                 }
+                value={userInput.personalDetails.jobTitle}
               />
               <TextField
-                label="Job Title"
+                label="location"
                 variant="standard"
                 onChange={(e) =>
                   setUserInput({
@@ -540,19 +494,7 @@ function Steps({ userInput, setUserInput }) {
                     },
                   })
                 }
-              />
-              <TextField
-                label="location"
-                variant="standard"
-                onChange={(e) =>
-                  setUserInput({
-                    ...userInput,
-                    personalDetails: {
-                      ...userInput.personalDetails,
-                      name: e.target.value,
-                    },
-                  })
-                }
+                value={userInput.personalDetails.location}
               />
             </div>
           </div>
@@ -575,6 +517,7 @@ function Steps({ userInput, setUserInput }) {
                     },
                   })
                 }
+                value={userInput.personalDetails.email}
               />
               <TextField
                 label="Phone"
@@ -588,6 +531,7 @@ function Steps({ userInput, setUserInput }) {
                     },
                   })
                 }
+                value={userInput.personalDetails.phone}
               />
               <TextField
                 label="GitHub"
@@ -601,6 +545,7 @@ function Steps({ userInput, setUserInput }) {
                     },
                   })
                 }
+                value={userInput.personalDetails.github}
               />
               <TextField
                 label="LinkedIn"
@@ -614,6 +559,7 @@ function Steps({ userInput, setUserInput }) {
                     },
                   })
                 }
+                value={userInput.personalDetails.linkedin}
               />
               <TextField
                 label="Portfolio"
@@ -627,6 +573,7 @@ function Steps({ userInput, setUserInput }) {
                     },
                   })
                 }
+                value={userInput.personalDetails.portfolio}
               />
             </div>
           </div>
@@ -649,6 +596,7 @@ function Steps({ userInput, setUserInput }) {
                     },
                   })
                 }
+                value={userInput.education.coures}
               />
               <TextField
                 label="College"
@@ -662,6 +610,7 @@ function Steps({ userInput, setUserInput }) {
                     },
                   })
                 }
+                value={userInput.education.college}
               />
               <TextField
                 label="University"
@@ -675,6 +624,7 @@ function Steps({ userInput, setUserInput }) {
                     },
                   })
                 }
+                value={userInput.education.university}
               />
               <TextField
                 label="Year of Passout"
@@ -688,6 +638,7 @@ function Steps({ userInput, setUserInput }) {
                     },
                   })
                 }
+                value={userInput.education.year}
               />
             </div>
           </div>
@@ -698,10 +649,62 @@ function Steps({ userInput, setUserInput }) {
           <div>
             <h3>Professional Details</h3>
             <div className="d-flex row p-3">
-              <TextField label="Job/Internship" variant="standard" />
-              <TextField label="Company Name" variant="standard" />
-              <TextField label="Location" variant="standard" />
-              <TextField label="Duration" variant="standard" />
+              <TextField
+                label="Job/Internship"
+                variant="standard"
+                onChange={(e) =>
+                  setUserInput({
+                    ...userInput,
+                    experience: {
+                      ...userInput.experience,
+                      job: e.target.value,
+                    },
+                  })
+                }
+                value={userInput.experience.job}
+              />
+              <TextField
+                label="Company Name"
+                variant="standard"
+                onChange={(e) =>
+                  setUserInput({
+                    ...userInput,
+                    experience: {
+                      ...userInput.experience,
+                      company: e.target.value,
+                    },
+                  })
+                }
+                value={userInput.experience.company}
+              />
+              <TextField
+                label="Location"
+                variant="standard"
+                onChange={(e) =>
+                  setUserInput({
+                    ...userInput,
+                    experience: {
+                      ...userInput.experience,
+                      location: e.target.value,
+                    },
+                  })
+                }
+                value={userInput.experience.location}
+              />
+              <TextField
+                label="Duration"
+                variant="standard"
+                onChange={(e) =>
+                  setUserInput({
+                    ...userInput,
+                    experience: {
+                      ...userInput.experience,
+                      duration: e.target.value,
+                    },
+                  })
+                }
+                value={userInput.experience.duration}
+              />
             </div>
           </div>
         );
@@ -751,12 +754,20 @@ function Steps({ userInput, setUserInput }) {
             <h3>Professional Summary</h3>
             <div className="d-flex row p-3">
               <TextField
+              id="standard-multiline-static"
                 label="Write a short summary"
                 multiline
                 rows={4}
                 defaultValue="EG: I am a passionate developer..."
                 variant="standard"
                 fullWidth
+                onChange={(e) =>
+                  setUserInput({
+                    ...userInput,
+                    summary:  e.target.value
+                    
+                  })
+                }
               />
             </div>
           </div>
@@ -835,14 +846,3 @@ function Steps({ userInput, setUserInput }) {
 }
 
 export default Steps;
-
-
-
-
-
-
-
-
-
-
-
