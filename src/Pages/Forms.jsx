@@ -3,6 +3,40 @@ import Privew from '../components/Privew'
 import Steps from '../components/Steps'
 
 function Forms() {
+
+
+
+//take and store input data
+
+const[userInput,setUserInput]=useState({
+  personalDetails:{
+    name:"",
+    jobTitle:"",
+    location:"",
+    email:"",
+    phone:"",
+    github:"",
+    linkedin:"",
+    portfolio:""
+
+  },
+  education:{
+    course:"",
+    college:"",
+    university:"",
+    year:""
+  },
+  experience:{
+    job:"",
+    company:"",
+    location:"",
+    duration:""
+  },
+
+  skills:[],
+  summary:""
+})
+
   return (
     <div>
       <h1>forms</h1>
