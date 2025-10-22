@@ -146,29 +146,50 @@ function Edit() {
 
             {/* skills  */}
 
-            <div
-              spacing={2}>
-             <TextField label="add skill" varient="standard" id="standard-basic" />
-              <Button sx={{maxWidth:'40px'}} className='me-3 mt-4' variant="text">Add </Button>
+            <div spacing={2}>
+              <TextField
+                label="add skill"
+                varient="standard"
+                id="standard-basic"
+              />
+              <Button
+                sx={{ maxWidth: '40px' }}
+                className="me-3 mt-4"
+                variant="text"
+              >
+                Add{' '}
+              </Button>
             </div>
-
-
 
             {/* add skills  */}
 
-             <h5>Added Skills : </h5>
-            
-                        <div className="d-flex justify-content-between">
-                          <span
-                            className="btn btn-primary d-flex justify-content-between
+            <h5>Added Skills : </h5>
+
+            <div className="d-flex justify-content-between">
+              <span
+                className="btn btn-primary d-flex justify-content-between
                           align-items-center"
-                          >
-                            Skills
-                            <button className="btn text-light fs-5">
-                              <RxCross2 />
-                            </button>
-                          </span>
-                          </div>
+              >
+                Skills
+                <button className="btn text-light fs-5">
+                  <RxCross2 />
+                </button>
+              </span>
+            </div>
+
+            <h3>Professional Summary</h3>
+            <div className="d-flex row p-3">
+              <TextField
+                id="standard-multiline-static"
+                label="write a short summary"
+                multiline
+                rows={4}
+                defaultValue="EG: I M A PASSIONATE............"
+                variant="standard"
+                VALUE=""
+              />
+            </div>
+            <button className=" btn  fs-5">Update</button>
           </Typography>
         </Box>
       </Modal>
