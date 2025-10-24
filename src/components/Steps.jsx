@@ -463,6 +463,14 @@ function Steps({ userInput, setUserInput }) {
     }
   };
 
+  //remove skill
+
+  const removeSkill=(skill)=>{
+    setUserInput({...userInput,skills:userInput.skills.filter
+      (item=>item!=skill)
+    })
+  }
+
   // Step Content Renderer
   const renderStepContent = (step) => {
     switch (step) {
@@ -776,7 +784,9 @@ function Steps({ userInput, setUserInput }) {
                     userInput.skills.length>0?userInput.skills.map(skill=>(
                         <span className="btn btn-primary d-flex align-items-center gap-2">
                      {skill}
-                    <button className="btn text-light fs-5 p-0">
+                    <button className="btn text-light fs-5 p-0"
+                    //
+                    onClick={()=>removeSkill(skill)}>
                       <RxCross2 />
                     </button>
                   </span>
