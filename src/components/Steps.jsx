@@ -392,7 +392,14 @@ import { Stack, TextField } from '@mui/material';
 import { RxCross2 } from 'react-icons/rx';
 
 function Steps({ userInput, setUserInput }) {
-  console.log(userInput);
+  // console.log(userInput);
+
+  //for showing button clicked items
+  const userSkillsRef=React.useRef()
+
+
+
+
 
   const steps = [
     'Basic Information',
@@ -444,6 +451,17 @@ function Steps({ userInput, setUserInput }) {
   };
 
   const handleReset = () => setActiveStep(0);
+
+  //addskill
+  const addskill = (inputSkill) => {
+    if(inputSkill){
+      if(userInput.skills.includes(inputSkill)){
+        alert("skill already exist, add anotjer skill")
+      }else{
+        setUserInput({...userInput,skills:[...userInput.skills,inputSkill]})
+      }
+    }
+  };
 
   // Step Content Renderer
   const renderStepContent = (step) => {
@@ -596,7 +614,7 @@ function Steps({ userInput, setUserInput }) {
                     },
                   })
                 }
-                value={userInput.education.coures}
+                value={userInput.education.course}
               />
               <TextField
                 label="College"
@@ -719,15 +737,32 @@ function Steps({ userInput, setUserInput }) {
                 direction="row"
                 sx={{ padding: '10px', gap: '10px', flexWrap: 'wrap' }}
               >
-                <Button variant="contained">Add Skill</Button>
+                {/* // FOR VIEWING  DATA IN BUTTON CLICK(FOR ADDING SKILLS) */}
+                <input
+                  ref={userSkillsRef}
+                  placeholder="add skills"
+                  type="text"
+                  name=""
+                  id=""
+                />
+                <Button
+                  onClick={() => addskill(userSkillsRef.current.value)}
+                  variant="contained"
+                >
+                  Add Skill
+                </Button>
               </Stack>
 
               <div>
                 <h5>Suggestions:</h5>
                 <div className="d-flex flex-wrap gap-2">
-                  {suggestionSkills.map((skill, index) => (
-                    <Button key={index} variant="outlined">
-                      {skill}
+                  {suggestionSkills.map((skills, index) => (
+                    <Button
+                      key={index}
+                      variant="outlined"
+                      onClick={() => addskill(skills)}>
+             
+                      {skills}
                     </Button>
                   ))}
                 </div>
@@ -736,12 +771,20 @@ function Steps({ userInput, setUserInput }) {
               <div style={{ marginTop: '1rem' }}>
                 <h5>Added Skills:</h5>
                 <div className="d-flex gap-2 flex-wrap">
-                  <span className="btn btn-primary d-flex align-items-center gap-2">
-                    Skill Name
+
+                  {
+                    userInput.skills.length>0?userInput.skills.map(skill=>(
+                        <span className="btn btn-primary d-flex align-items-center gap-2">
+                     {skill}
                     <button className="btn text-light fs-5 p-0">
                       <RxCross2 />
                     </button>
                   </span>
+                    )):
+                    <p>Nothing to display</p>
+                
+                 }
+
                 </div>
               </div>
             </Box>
