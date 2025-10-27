@@ -77,22 +77,36 @@ function Privew(userInput) {
               <Link href={userInput.personalDetials.portfolio} target="_blank">
                 Portfolio
               </Link>
-             
             </Typography>
 
             <Divider>Summary</Divider>
 
-            <Typography mb={3}></Typography>
+            <Typography mb={3}>
+              <p className="text-start">{userInput.summary}</p>
+            </Typography>
 
             <Divider>Education</Divider>
+            <h5>{userInput.education.course} </h5>
+            <p>
+              <span>{userInput.education.college}</span> |
+              <span>{userInput.education.university}</span>
+              <span>{userInput.education.year}</span>
+            </p>
             <Typography variant="h6" align="center"></Typography>
 
             <Typography variant="body2" align="center" mb={4}></Typography>
 
             <Divider>Professional Experience</Divider>
 
-            <Typography variant="h6" align="center"></Typography>
-            <Typography variant="body2" align="center" mb={4}></Typography>
+            <Typography variant="h6" align="center">
+              <h5>{userInput.experience.job} </h5>
+              <p>
+                <span>{userInput.experience.company}</span> |
+                <span>{userInput.experience.location}</span>
+                <span>{userInput.experience.duration}</span>
+              </p>
+            </Typography>
+            {/* <Typography variant="body2" align="center" mb={4}></Typography> */}
 
             <Divider>Skills</Divider>
 
