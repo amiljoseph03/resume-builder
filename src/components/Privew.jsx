@@ -23,7 +23,8 @@ import Edit from './Edit';
 
 
 
-function Privew() {
+function Privew(userInput) {
+  console.log(userInput)
   return (
     <div>
       <div className="d-flex justify-content-center align-items-center">
@@ -33,9 +34,9 @@ function Privew() {
 
         {/* edit  */}
 
-       <div>
-        <Edit/>
-       </div>
+        <div>
+          <Edit />
+        </div>
 
         {/* history  */}
         <button className=" btn text-primary fs-2">
@@ -51,57 +52,60 @@ function Privew() {
           </Link>
         </button>
       </div>
+      {userInput.personalDetials.name != '' && (
+        <Box style={{ marginTop: '100px' }}>
+          <Paper elevation={5} id="result">
+            <Typography variant="h4" align="center" component="h2">
+              <h2>Name : {userInput.personalDetials.name} </h2>
+            </Typography>
 
-      <Box>
-        <Paper elevation={5} id="result">
-          <Typography variant="h4" align="center" component="h2">
-            <h2>Name : </h2>
-          </Typography>
+            <Typography variant="h4" align="center" color="blue">
+              <h2>Job title : {userInput.personalDetials.jobTitle} </h2>
+            </Typography>
+            <Typography variant="h4" align="center">
+              {userInput.personalDetials.email}
+              {userInput.personalDetials.location}
+              {userInput.personalDetials.phone}
+            </Typography>
+            <Typography varient="body2" align="center" mb={4}>
+              <Link href={userInput.personalDetials.github} target="_blank">
+                Github
+              </Link>
+              <Link href={userInput.personalDetials.linkedin} target="_blank">
+                Linkedin
+              </Link>
+              <Link href={userInput.personalDetials.portfolio} target="_blank">
+                Portfolio
+              </Link>
+             
+            </Typography>
 
-          <Typography variant="h4" align="center" color="blue">
-            <h2>Job title : </h2>
-          </Typography>
-          <Typography variant="h4" align="center"></Typography>
-          <Typography varient="body2" align="center" mb={4}>
-            <Link href="" target="_blank">
-              Github
-            </Link>
-            <Link href="" target="_blank">
-              Linkedin
-            </Link>
-            <Link href="" target="_blank">
-              Github
-            </Link>
-            <Link href="" target="_blank">
-              Github
-            </Link>
-          </Typography>
+            <Divider>Summary</Divider>
 
-          <Divider>Summary</Divider>
+            <Typography mb={3}></Typography>
 
-          <Typography mb={3}></Typography>
+            <Divider>Education</Divider>
+            <Typography variant="h6" align="center"></Typography>
 
-          <Divider>Education</Divider>
-          <Typography variant="h6" align="center"></Typography>
+            <Typography variant="body2" align="center" mb={4}></Typography>
 
-          <Typography variant="body2" align="center" mb={4}></Typography>
+            <Divider>Professional Experience</Divider>
 
-          <Divider>Professional Experience</Divider>
+            <Typography variant="h6" align="center"></Typography>
+            <Typography variant="body2" align="center" mb={4}></Typography>
 
-          <Typography variant="h6" align="center"></Typography>
-          <Typography variant="body2" align="center" mb={4}></Typography>
+            <Divider>Skills</Divider>
 
-          <Divider>Skills</Divider>
-
-          <Stack
-            spacing={2}
-            direction="row"
-            sx={{ padding: '10px', gap: '10px', flexWrap: 'wrap' }}
-          >
-            <Button variant="contained">Contained</Button>
-          </Stack>
-        </Paper>
-      </Box>
+            <Stack
+              spacing={2}
+              direction="row"
+              sx={{ padding: '10px', gap: '10px', flexWrap: 'wrap' }}
+            >
+              <Button variant="contained">Contained</Button>
+            </Stack>
+          </Paper>
+        </Box>
+      )}
     </div>
   );
 }
