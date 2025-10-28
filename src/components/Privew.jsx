@@ -22,9 +22,10 @@ import Edit from './Edit';
 
 
 
+function Privew({ userInput }) {
+  // ✅ Proper destructuring
+  console.log(userInput);
 
-function Privew(userInput) {
-  console.log(userInput)
   return (
     <div>
       <div className="d-flex justify-content-center align-items-center">
@@ -52,29 +53,29 @@ function Privew(userInput) {
           </Link>
         </button>
       </div>
-      {userInput.personalDetials.name != '' && (
+      {userInput.personalDetails.name != '' && (
         <Box style={{ marginTop: '100px' }}>
           <Paper elevation={5} id="result">
             <Typography variant="h4" align="center" component="h2">
-              <h2>Name : {userInput.personalDetials.name} </h2>
+              <h2>Name : {userInput.personalDetails.name} </h2>
             </Typography>
 
             <Typography variant="h4" align="center" color="blue">
-              <h2>Job title : {userInput.personalDetials.jobTitle} </h2>
+              <h2>Job title : {userInput.personalDetails.jobTitle} </h2>
             </Typography>
             <Typography variant="h4" align="center">
-              {userInput.personalDetials.email}
-              {userInput.personalDetials.location}
-              {userInput.personalDetials.phone}
+              {userInput.personalDetails.email}
+              {userInput.personalDetails.location}
+              {userInput.personalDetails.phone}
             </Typography>
             <Typography varient="body2" align="center" mb={4}>
-              <Link href={userInput.personalDetials.github} target="_blank">
+              <Link href={userInput.personalDetails.github} target="_blank">
                 Github
               </Link>
-              <Link href={userInput.personalDetials.linkedin} target="_blank">
+              <Link href={userInput.personalDetails.linkedin} target="_blank">
                 Linkedin
               </Link>
-              <Link href={userInput.personalDetials.portfolio} target="_blank">
+              <Link href={userInput.personalDetails.portfolio} target="_blank">
                 Portfolio
               </Link>
             </Typography>
@@ -115,7 +116,9 @@ function Privew(userInput) {
               direction="row"
               sx={{ padding: '10px', gap: '10px', flexWrap: 'wrap' }}
             >
-              <Button variant="contained">Contained</Button>
+              {userInput.skills.map((skill) => (
+                <Button variant="contained">{skill}</Button>
+              ))}
             </Stack>
           </Paper>
         </Box>
