@@ -426,6 +426,16 @@ function Steps({ userInput, setUserInput }) {
   const isStepOptional = (step) => step === 1;
   const isStepSkipped = (step) => skipped.has(step);
 
+  const handleAddResume=()=>{
+    // alert("api added")
+    const {name,jobTitle,location}=userInput.personalDetails
+    if(name && jobTitle && location){
+      alert("proceed to api call")
+    }else{
+      alert("please fill missing details")
+    }
+  }
+
   const handleNext = () => {
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
@@ -888,9 +898,13 @@ function Steps({ userInput, setUserInput }) {
               </Button>
             )}
 
-            <Button onClick={handleNext}>
+            {/* <Button onClick={handleNext}>
               {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-            </Button>
+            </Button> */}
+
+             {activeStep === steps.length - 1 ?
+             <Button onClick={handleAddResume}>Finish</Button>
+            : <Button onClick={handleNext}>Next</Button>}
           </Box>
         </>
       )}
