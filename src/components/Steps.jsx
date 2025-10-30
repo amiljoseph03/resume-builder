@@ -390,8 +390,10 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Stack, TextField } from '@mui/material';
 import { RxCross2 } from 'react-icons/rx';
+import { addResumeAPI } from '../services/allAPI';
+import swal from 'sweetalert';
 
-function Steps({ userInput, setUserInput }) {
+function Steps({ userInput, setUserInput, setFinish }) {
   // console.log(userInput);
 
   //for showing button clicked items
@@ -426,11 +428,23 @@ function Steps({ userInput, setUserInput }) {
   const isStepOptional = (step) => step === 1;
   const isStepSkipped = (step) => skipped.has(step);
 
-  const handleAddResume=()=>{
+  const handleAddResume=async()=>{
     // alert("api added")
     const {name,jobTitle,location}=userInput.personalDetails
     if(name && jobTitle && location){
-      alert("proceed to api call")
+      //apicall
+      try{
+        const result = await addResumeAPI(userInput)
+        console.log(result)
+          setFinish(true)
+
+        // alert("resume added")
+        swal("success","resume created")
+      }catch(err){
+        console.log(err)
+        swal("error")
+      }
+      // alert("proceed to api call")
     }else{
       alert("please fill missing details")
     }
@@ -466,6 +480,7 @@ function Steps({ userInput, setUserInput }) {
   const addskill = (inputSkill) => {
     if(inputSkill){
       if(userInput.skills.includes(inputSkill)){
+
         alert("skill already exist, add anotjer skill")
       }else{
         setUserInput({...userInput,skills:[...userInput.skills,inputSkill]})
