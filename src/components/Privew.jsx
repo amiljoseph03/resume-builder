@@ -166,7 +166,23 @@ import {jsPDF} from "jsPDF"
 function Privew({ userInput, finish }) {
   console.log(userInput);
 
-  // 🧩 Render nothing if no personal details
+  const downloadCV= async()=>{
+    // get elemnt to create screnshot
+    // result is the id of paper
+    const input = document.getElementById('result')
+    const canvas = await html2canvas(input,{scale:2})
+    const imgUrl = canvas.toDataURL('image/png')
+
+    //jspdf
+    const pdf=new jsPDF()
+    const pdfWidth=pdf.internal.pageSize.getWidth()
+    const pdfHeight=pdf.internal.pageSize.getHeight()
+    pdf.addImage(imgUrl,'PNG',0,0,pdfWidth,pdfHeight)
+    pdf.save('resume.pdf')
+
+  }
+
+  // Render nothing if no personal details
   if (!userInput.personalDetails.name) {
     return null;
   }
@@ -177,7 +193,7 @@ function Privew({ userInput, finish }) {
       {finish && (
         <div className="d-flex justify-content-center align-items-center gap-3 my-3">
           {/* Download Button */}
-          <button className="btn text-primary fs-2">
+          <button onClick={downloadCV} className="btn text-primary fs-2">
             <RiDownloadCloudFill />
           </button>
 
