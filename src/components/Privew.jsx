@@ -143,7 +143,7 @@
 
 
 
-import React from 'react';
+// import React from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
@@ -162,10 +162,17 @@ import Edit from './Edit';
 import html2canvas from 'html2canvas';
 import {jsPDF} from "jsPDF"
 import { addDownloadHistoryAPI } from '../services/allAPI';
+// import { useState } from 'react';
+import React, { useState } from 'react';
+
 
 
 function Privew({ userInput, finish }) {
   console.log(userInput);
+
+
+
+  const [downloadstatus, setdownloadstatus] =useState(false)
 
   const downloadCV= async()=>{
     // get elemnt to create screnshot
@@ -191,6 +198,9 @@ function Privew({ userInput, finish }) {
     try{
       const result= await addDownloadHistoryAPI({...userInput,timeStamp,imgUrl}) 
       console.log(result)
+
+      //history
+      setdownloadstatus(true)
     }catch(err){
       console.log(err)
     
@@ -224,11 +234,16 @@ function Privew({ userInput, finish }) {
           </button>
 
           {/* Back Button */}
-          <button className="btn text-primary fs-2">
-            <Link to="/resume-generator">
-              <IoArrowBackCircle />
-            </Link>
-          </button>
+
+          {downloadstatus && 
+            <>
+              <button className="btn text-primary fs-2">
+                <Link to="/resume-generator">
+                  <IoArrowBackCircle />
+                </Link>
+              </button>
+            </>
+          }
         </div>
       )}
 

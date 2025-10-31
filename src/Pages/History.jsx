@@ -1,12 +1,32 @@
-import React from 'react'
+// import React from 'react'
 
 import { MdDelete } from "react-icons/md"
 import { Link } from 'react-router-dom';
 import { Paper, Button, Box } from '@mui/material';
+import { getHistoryAPI } from '../services/allAPI';
+import React, { useState, useEffect } from 'react';
 
 
 
 function History() {
+
+  const[resume,setResume]=useState([])
+  const getHistory = async()=>{
+    try{
+      const result = await getHistoryAPI()
+      console.log(result)
+      setResume(result.data)
+    }catch(err){
+      console.log(err)
+    }
+  }
+  useEffect(()=>{
+    getHistory()
+  },[])
+
+  console.log(resume)
+
+
   return (
     <div>
       <h1>Downloaded resume history</h1>
