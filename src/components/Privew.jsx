@@ -161,6 +161,7 @@ import Edit from './Edit';
 
 import html2canvas from 'html2canvas';
 import {jsPDF} from "jsPDF"
+import { addDownloadHistoryAPI } from '../services/allAPI';
 
 
 function Privew({ userInput, finish }) {
@@ -179,6 +180,21 @@ function Privew({ userInput, finish }) {
     const pdfHeight=pdf.internal.pageSize.getHeight()
     pdf.addImage(imgUrl,'PNG',0,0,pdfWidth,pdfHeight)
     pdf.save('resume.pdf')
+
+    // get time date
+    const localTimeDate = new Date()
+    const timeStamp = `${localTimeDate.toLocaleDateString()},
+    ${localTimeDate.toLocaleTimeString()}`
+
+    // add history
+
+    try{
+      const result= await addDownloadHistoryAPI({...userInput,timeStamp,imgUrl}) 
+      console.log(result)
+    }catch(err){
+      console.log(err)
+    
+  }
 
   }
 
