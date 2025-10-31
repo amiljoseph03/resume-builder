@@ -158,6 +158,11 @@ import { IoArrowBackCircle } from 'react-icons/io5';
 
 import Edit from './Edit';
 
+
+import html2canvas from 'html2canvas';
+import {jsPDF} from "jsPDF"
+
+
 function Privew({ userInput, finish }) {
   console.log(userInput);
 

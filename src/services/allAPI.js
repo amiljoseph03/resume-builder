@@ -6,7 +6,7 @@ import commonAPI from "./commonAPI"
     return await commonAPI('POST',`${baseUrl}/resumes`,resume)
 }
 
-//editttttttttt resume api - PUT
+//edit resume api - PUT
 export const editResumeAPI=async(id,resume)=>{
     return await commonAPI('PUT', `${baseUrl}/resumes/${id}`,resume)
 }
