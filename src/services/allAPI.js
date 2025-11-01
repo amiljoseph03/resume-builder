@@ -24,5 +24,5 @@ export const getHistoryAPI=async()=>{
 
 //delete history - POST
 export const deleteHistoryAPI=async(id)=>{
-    return await commonAPI('DELETE',`${baseUrl}/history`,{})
+    return await commonAPI('DELETE',`${baseUrl}/history/${id}`,{})
 }
