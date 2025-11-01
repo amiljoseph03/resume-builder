@@ -393,15 +393,11 @@ import { RxCross2 } from 'react-icons/rx';
 import { addResumeAPI } from '../services/allAPI';
 import swal from 'sweetalert';
 
-function Steps({ userInput, setUserInput, setFinish }) {
+function Steps({ userInput, setUserInput, setFinish, setresumeId }) {
   // console.log(userInput);
 
   //for showing button clicked items
-  const userSkillsRef=React.useRef()
-
-
-
-
+  const userSkillsRef = React.useRef();
 
   const steps = [
     'Basic Information',
@@ -428,27 +424,30 @@ function Steps({ userInput, setUserInput, setFinish }) {
   const isStepOptional = (step) => step === 1;
   const isStepSkipped = (step) => skipped.has(step);
 
-  const handleAddResume=async()=>{
+  const handleAddResume = async () => {
     // alert("api added")
-    const {name,jobTitle,location}=userInput.personalDetails
-    if(name && jobTitle && location){
+    const { name, jobTitle, location } = userInput.personalDetails;
+    if (name && jobTitle && location) {
       //apicall
-      try{
-        const result = await addResumeAPI(userInput)
-        console.log(result)
-          setFinish(true)
+      try {
+        const result = await addResumeAPI(userInput);
+        console.log(result);
+        setFinish(true);
+
+        //edit resume
+        setresumeId(result.data.id)
 
         // alert("resume added")
-        swal("success","resume created")
-      }catch(err){
-        console.log(err)
-        swal("error")
+        swal('success', 'resume created');
+      } catch (err) {
+        console.log(err);
+        swal('error');
       }
       // alert("proceed to api call")
-    }else{
-      alert("please fill missing details")
+    } else {
+      alert('please fill missing details');
     }
-  }
+  };
 
   const handleNext = () => {
     let newSkipped = skipped;
@@ -478,23 +477,26 @@ function Steps({ userInput, setUserInput, setFinish }) {
 
   //addskill
   const addskill = (inputSkill) => {
-    if(inputSkill){
-      if(userInput.skills.includes(inputSkill)){
-
-        alert("skill already exist, add anotjer skill")
-      }else{
-        setUserInput({...userInput,skills:[...userInput.skills,inputSkill]})
+    if (inputSkill) {
+      if (userInput.skills.includes(inputSkill)) {
+        alert('skill already exist, add anotjer skill');
+      } else {
+        setUserInput({
+          ...userInput,
+          skills: [...userInput.skills, inputSkill],
+        });
       }
     }
   };
 
   //remove skill
 
-  const removeSkill=(skill)=>{
-    setUserInput({...userInput,skills:userInput.skills.filter
-      (item=>item!=skill)
-    })
-  }
+  const removeSkill = (skill) => {
+    setUserInput({
+      ...userInput,
+      skills: userInput.skills.filter((item) => item != skill),
+    });
+  };
 
   // Step Content Renderer
   const renderStepContent = (step) => {
@@ -793,8 +795,8 @@ function Steps({ userInput, setUserInput, setFinish }) {
                     <Button
                       key={index}
                       variant="outlined"
-                      onClick={() => addskill(skills)}>
-             
+                      onClick={() => addskill(skills)}
+                    >
                       {skills}
                     </Button>
                   ))}
@@ -804,22 +806,22 @@ function Steps({ userInput, setUserInput, setFinish }) {
               <div style={{ marginTop: '1rem' }}>
                 <h5>Added Skills:</h5>
                 <div className="d-flex gap-2 flex-wrap">
-
-                  {
-                    userInput.skills.length>0?userInput.skills.map(skill=>(
-                        <span className="btn btn-primary d-flex align-items-center gap-2">
-                     {skill}
-                    <button className="btn text-light fs-5 p-0"
-                    //
-                    onClick={()=>removeSkill(skill)}>
-                      <RxCross2 />
-                    </button>
-                  </span>
-                    )):
+                  {userInput.skills.length > 0 ? (
+                    userInput.skills.map((skill) => (
+                      <span className="btn btn-primary d-flex align-items-center gap-2">
+                        {skill}
+                        <button
+                          className="btn text-light fs-5 p-0"
+                          //
+                          onClick={() => removeSkill(skill)}
+                        >
+                          <RxCross2 />
+                        </button>
+                      </span>
+                    ))
+                  ) : (
                     <p>Nothing to display</p>
-                
-                 }
-
+                  )}
                 </div>
               </div>
             </Box>
@@ -832,7 +834,7 @@ function Steps({ userInput, setUserInput, setFinish }) {
             <h3>Professional Summary</h3>
             <div className="d-flex row p-3">
               <TextField
-              id="standard-multiline-static"
+                id="standard-multiline-static"
                 label="Write a short summary"
                 multiline
                 rows={4}
@@ -842,8 +844,7 @@ function Steps({ userInput, setUserInput, setFinish }) {
                 onChange={(e) =>
                   setUserInput({
                     ...userInput,
-                    summary:  e.target.value
-                    
+                    summary: e.target.value,
                   })
                 }
               />
@@ -917,9 +918,11 @@ function Steps({ userInput, setUserInput, setFinish }) {
               {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
             </Button> */}
 
-             {activeStep === steps.length - 1 ?
-             <Button onClick={handleAddResume}>Finish</Button>
-            : <Button onClick={handleNext}>Next</Button>}
+            {activeStep === steps.length - 1 ? (
+              <Button onClick={handleAddResume}>Finish</Button>
+            ) : (
+              <Button onClick={handleNext}>Next</Button>
+            )}
           </Box>
         </>
       )}

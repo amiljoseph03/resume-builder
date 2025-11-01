@@ -26,3 +26,9 @@ export const getHistoryAPI=async()=>{
 export const deleteHistoryAPI=async(id)=>{
     return await commonAPI('DELETE',`${baseUrl}/history/${id}`,{})
 }
+
+
+// get resume api , edit cheyymbo to get data
+export const getResumeAPI=async(id)=>{
+    return await commonAPI("GET",`${baseUrl}/resumes/${id}`,{})
+}

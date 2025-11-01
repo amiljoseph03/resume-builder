@@ -37,7 +37,8 @@ const style = {
 
 
 
-function Edit() {
+function Edit({resumeId}) {
+  console.log(resumeId)
 
 
   const [open, setOpen] = React.useState(false);

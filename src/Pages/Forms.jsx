@@ -124,6 +124,16 @@ function Forms() {
 
   const [finish, setFinish] = useState(false);
 
+
+
+
+
+// edit resume
+const[resumeId,setresumeId]=useState("")
+
+
+
+
   return (
     <div className="row p-5">
       {finish ? (
@@ -131,6 +141,7 @@ function Forms() {
           <div className="col-3"></div>
           <div className="col-8">
             <Privew
+              resumeId={resumeId}
               userInput={userInput}
               setUserInput={setUserInput}
               finish={finish}
@@ -142,6 +153,7 @@ function Forms() {
         <div className="row p-5">
           <div className="col-6">
             <Steps
+              setresumeId={setresumeId}
               userInput={userInput}
               setUserInput={setUserInput}
               setFinish={setFinish}

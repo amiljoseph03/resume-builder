@@ -167,7 +167,7 @@ import React, { useState } from 'react';
 
 
 
-function Privew({ userInput, finish }) {
+function Privew({ userInput, finish, resumeId }) {
   console.log(userInput);
 
 
@@ -224,7 +224,9 @@ function Privew({ userInput, finish }) {
           </button>
 
           {/* Edit Button */}
-          <Edit />
+          <div>
+            <Edit resumeId={resumeId} />
+          </div>
 
           {/* History Button */}
           <button className="btn text-primary fs-2">
@@ -235,7 +237,7 @@ function Privew({ userInput, finish }) {
 
           {/* Back Button */}
 
-          {downloadstatus && 
+          {downloadstatus && (
             <>
               <button className="btn text-primary fs-2">
                 <Link to="/resume-generator">
@@ -243,7 +245,7 @@ function Privew({ userInput, finish }) {
                 </Link>
               </button>
             </>
-          }
+          )}
         </div>
       )}
 
