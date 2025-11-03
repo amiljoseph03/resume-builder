@@ -10,6 +10,7 @@ import Modal from '@mui/material/Modal';
 import { TextField } from '@mui/material';
 import { RxCross2 } from 'react-icons/rx';
 
+import { getResumeAPI } from '../services/allAPI';
 
 
 
@@ -72,11 +73,11 @@ React.useEffect(()=>{
             Edit detials
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <h3>personal detials</h3>
+            <h3>Personal detials</h3>
             <div className="d-flex row p-3">
               <TextField
                 id="standard-basic"
-                label="job title"
+                label="Full name"
                 variant="standard"
               />
               <TextField
@@ -88,8 +89,8 @@ React.useEffect(()=>{
 
             <h3>Contact detials</h3>
             <div className="d-flex row p-3">
-              <TextField id="standard-basic" label="email" variant="standard" />
-              <TextField id="standard-basic" label="phone" variant="standard" />
+              <TextField id="standard-basic" label="Email" variant="standard" />
+              <TextField id="standard-basic" label="Phone" variant="standard" />
               <TextField
                 id="standard-basic"
                 label="github"
@@ -102,7 +103,7 @@ React.useEffect(()=>{
               />
               <TextField
                 id="standard-basic"
-                label="portfolio"
+                label="Portfolio"
                 variant="standard"
               />
             </div>
