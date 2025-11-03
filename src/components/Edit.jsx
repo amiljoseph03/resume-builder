@@ -13,12 +13,6 @@ import { RxCross2 } from 'react-icons/rx';
 
 
 
-
-
-
-
-
-
 const style = {
   position: 'absolute',
   top: '50%',
@@ -44,6 +38,22 @@ function Edit({resumeId}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const[userInput,setUserInput]=React.useState({})
+
+  // get data for edit
+  const getResumeDetails=async()=>{
+    try{
+      const result = await getResumeAPI(resumeId)
+
+    }catch(err){
+      console.log(err)
+    }
+  }
+
+React.useEffect(()=>{
+  resumeId && getResumeDetails()
+},[resumeId])
 
   return (
     <div>

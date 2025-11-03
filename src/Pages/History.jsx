@@ -23,7 +23,8 @@ function History() {
   }
   useEffect(()=>{
     getHistory()
-  },[resume])
+  // },[resume])
+  },[])
 
   console.log(resume)
 
@@ -57,7 +58,7 @@ function History() {
                   Item
                 </h6>
                 <button
-                  onClick={() => handleRemove(item._id)}
+                  onClick={() => handleRemove(item.id)}
                   className="btn text-danger fs-4 ms-5"
                 >
                   <MdDelete />
