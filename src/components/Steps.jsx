@@ -443,7 +443,7 @@ function Steps({ userInput, setUserInput, setFinish, setresumeId }) {
         console.log(err);
         swal('error');
       }
-      // alert("proceed to api call")
+      
     } else {
       alert('please fill missing details');
     }

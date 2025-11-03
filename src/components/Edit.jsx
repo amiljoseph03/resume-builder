@@ -74,8 +74,8 @@ React.useEffect(()=>{
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             <h3>Personal detials</h3>
-            <div className="d-flex row p-3">
-              <TextField
+            {/* <div className="d-flex row p-3"> */}
+              {/* <TextField
                 id="standard-basic"
                 label="Full name"
                 variant="standard"
@@ -85,7 +85,30 @@ React.useEffect(()=>{
                 label="job title"
                 variant="standard"
               />
-            </div>
+              <TextField
+                id="standard-basic"
+                label="location"
+                variant="standard"
+              />
+            </div> */}
+
+              <TextField
+                            label="Full Name"
+                            variant="standard"
+                            //retrive input data
+                            onChange={(e) =>
+                              setUserInput({
+                                ...userInput,
+                                personalDetails: {
+                                  ...userInput.personalDetails,
+                                  name: e.target.value,
+                                },
+                              })
+                            }
+                            value={userInput?.personalDetails?.name}
+                          />
+
+                          
 
             <h3>Contact detials</h3>
             <div className="d-flex row p-3">
@@ -178,6 +201,8 @@ React.useEffect(()=>{
             <h5>Added Skills : </h5>
 
             <div className="d-flex justify-content-between">
+              
+              {userInput?.skills?.length>0 && userInput?.skills.map(skill=>(
               <span
                 className="btn btn-primary d-flex justify-content-between
                           align-items-center"
@@ -186,7 +211,7 @@ React.useEffect(()=>{
                 <button className="btn text-light fs-5">
                   <RxCross2 />
                 </button>
-              </span>
+              </span>)) }
             </div>
 
             <h3>Professional Summary</h3>
