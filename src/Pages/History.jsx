@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { Paper, Button, Box } from '@mui/material';
 // import { getHistoryAPI } from '../services/allAPI';
 import React, { useState, useEffect } from 'react';
-
 import { getHistoryAPI, deleteHistoryAPI } from '../services/allAPI';
 
 

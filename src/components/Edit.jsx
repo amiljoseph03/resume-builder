@@ -1,7 +1,6 @@
 import React from 'react';
 import { FaEdit } from 'react-icons/fa';
 import Button from '@mui/material/Button';
-
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
@@ -25,7 +24,7 @@ const style = {
   overflowY: 'auto',
 };
 
-function Edit({ resumeId }) {
+function Edit({ resumeId, setUpdateResume }) {
   console.log(resumeId);
 
   const [open, setOpen] = React.useState(false);
@@ -65,7 +64,7 @@ function Edit({ resumeId }) {
         });
       }
     }
-    setUserSkill("")
+    setUserSkill('');
   };
 
   //remove skill
@@ -77,20 +76,19 @@ function Edit({ resumeId }) {
     });
   };
 
-
-
   //update
 
-const handleUpdate=async()=>{
-  try{
-    const result= await editResumeAPI(userInput?.id,userInput)
-    console.log(result)
-    handleClose()
+  const handleUpdate = async () => {
+    try {
+      const result = await editResumeAPI(userInput?.id, userInput);
+      console.log(result);
+      handleClose();
+      setUpdateResume(result?.data)
 
-  }catch(err){
-    console.log(err)
-  }
-}
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div>
@@ -354,7 +352,10 @@ const handleUpdate=async()=>{
             {/* skills  */}
 
             <div spacing={2}>
-              <TextField  label="add skill"  varient="standard"  id="standard-basic"
+              <TextField
+                label="add skill"
+                varient="standard"
+                id="standard-basic"
                 onChange={(e) => setUserSkill(e.target.value)}
                 value={userSkill}
               />
@@ -405,8 +406,9 @@ const handleUpdate=async()=>{
                 }
               />
             </div>
-            <button 
-            onClick={handleUpdate} className=" btn  fs-5">Update</button>
+            <button onClick={handleUpdate} className=" btn  fs-5">
+              Update
+            </button>
           </Typography>
         </Box>
       </Modal>

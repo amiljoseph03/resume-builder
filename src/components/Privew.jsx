@@ -167,10 +167,8 @@ import React, { useState } from 'react';
 
 
 
-function Privew({ userInput, finish, resumeId }) {
-  console.log(userInput);
-
-
+function Privew({ userInput, finish, resumeId ,setUserInput}) {
+  // console.log(userInput);
 
   const [downloadstatus, setdownloadstatus] =useState(false)
 
@@ -225,7 +223,7 @@ function Privew({ userInput, finish, resumeId }) {
 
           {/* Edit Button */}
           <div>
-            <Edit resumeId={resumeId} />
+            <Edit resumeId={resumeId} setUpdateResume={setUserInput} />
           </div>
 
           {/* History Button */}
