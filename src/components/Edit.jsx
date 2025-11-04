@@ -69,67 +69,50 @@ function Edit({ resumeId }) {
             <h3>Personal detials</h3>
             <div className="d-flex row p-3">
               <TextField
-                label="Full Name"
-                variant="standard"
+                label="Full Name" variant="standard"
                 //retrive input data
                 onChange={(e) =>
                   setUserInput({
-                    ...userInput,
-                    personalDetails: {
-                      ...userInput.personalDetails,
-                      name: e.target.value,
+                    ...userInput,personalDetails: {
+                      ...userInput.personalDetails, name: e.target.value,
                     },
                   })
-                }
-                value={userInput?.personalDetails?.name}
+                }value={userInput?.personalDetails?.name}
               />
 
               <TextField
-                label="Job Title"
-                variant="standard"
+                label="Job Title" variant="standard"
                 onChange={(e) =>
                   setUserInput({
-                    ...userInput,
-                    personalDetails: {
-                      ...userInput.personalDetails,
-                      jobTitle: e.target.value,
+                    ...userInput, personalDetails: {
+                      ...userInput.personalDetails, jobTitle: e.target.value,
                     },
                   })
-                }
-                value={userInput?.personalDetails?.jobTitle}
+                } value={userInput?.personalDetails?.jobTitle}
               />
               <TextField
-                label="location"
-                variant="standard"
+                label="location" variant="standard"
                 onChange={(e) =>
                   setUserInput({
-                    ...userInput,
-
-                    personalDetails: {
-                      ...userInput.personalDetails,
-                      location: e.target.value,
+                    ...userInput,personalDetails: {
+                      ...userInput.personalDetails,location: e.target.value,
                     },
                   })
-                }
-                value={userInput?.personalDetails?.location}
+                } value={userInput?.personalDetails?.location}
               />
             </div>
 
             <h3>Contact detials</h3>
             <div className="d-flex row p-3">
               <TextField
-                label="Email"
-                variant="standard"
+                label="Email" variant="standard"
                 onChange={(e) =>
                   setUserInput({
-                    ...userInput,
-                    personalDetails: {
-                      ...userInput.personalDetails,
-                      email: e.target.value,
+                    ...userInput, personalDetails: {
+                      ...userInput.personalDetails, email: e.target.value,
                     },
                   })
-                }
-                value={userInput?.personalDetails?.email}
+                }value={userInput?.personalDetails?.email}
               />
               <TextField
                 label="Phone"
