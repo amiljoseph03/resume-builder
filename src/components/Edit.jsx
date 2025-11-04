@@ -79,10 +79,6 @@ function Edit({ resumeId }) {
 
 
 
-
-
-
-
   //update
 
 const handleUpdate=async()=>{
@@ -358,10 +354,7 @@ const handleUpdate=async()=>{
             {/* skills  */}
 
             <div spacing={2}>
-              <TextField
-                label="add skill"
-                varient="standard"
-                id="standard-basic"
+              <TextField  label="add skill"  varient="standard"  id="standard-basic"
                 onChange={(e) => setUserSkill(e.target.value)}
                 value={userSkill}
               />
