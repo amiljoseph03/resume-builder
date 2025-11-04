@@ -67,6 +67,15 @@ function Edit({ resumeId }) {
     }
   };
 
+  //remove skill
+
+  const removeSkill = (skill) => {
+    setUserInput({
+      ...userInput,
+      skills: userInput.skills.filter((item) => item != skill),
+    });
+  };
+
   return (
     <div>
       <Button onClick={handleOpen} className="btn text-primary fs-2">
@@ -337,7 +346,8 @@ function Edit({ resumeId }) {
                 value={userSkill}
               />
 
-              <Button onClick={addskill}
+              <Button
+                onClick={addskill}
                 sx={{ maxWidth: '40px' }}
                 className="me-3 mt-4"
                 variant="text"
@@ -356,7 +366,10 @@ function Edit({ resumeId }) {
                 userInput?.skills.map((skill) => (
                   <span className="btn btn-primary d-flex justify-content-between align-items-center">
                     {skill}
-                    <button className="btn text-light fs-5">
+                    <button
+                      onClick={() => removeSkill(skill)}
+                      className="btn text-light fs-5"
+                    >
                       <RxCross2 />
                     </button>
                   </span>
