@@ -38,8 +38,8 @@ function Edit({ resumeId }) {
   const getEditResumeDetails = async () => {
     try {
       const result = await getResumeAPI(resumeId);
-      console.log(result)
-      setUserInput(result?.data)
+      console.log(result);
+      setUserInput(result?.data);
     } catch (err) {
       console.log(err);
     }
@@ -252,60 +252,38 @@ function Edit({ resumeId }) {
             <h3>Professional detials</h3>
             <div className="d-flex row p-3">
               <TextField
-                label="Job/Internship"
-                variant="standard"
-                onChange={(e) =>
-                  setUserInput({
-                    ...userInput,
-                    experience: {
-                      ...userInput.experience,
-                      job: e.target.value,
+                label="Job/Internship"  variant="standard"
+                onChange={(e) =>setUserInput({
+                    ...userInput,experience: {
+                      ...userInput.experience,job: e.target.value,
                     },
                   })
-                }
-                value={userInput?.experience?.job}
+                }value={userInput?.experience?.job}
+              />
+              <TextField label="Company Name" variant="standard"
+                onChange={(e) =>setUserInput({
+                    ...userInput,experience: {
+                      ...userInput.experience,company: e.target.value,
+                    },
+                  })
+                }value={userInput?.experience?.company}
+              />
+              <TextField label="Location"variant="standard"
+                onChange={(e) =>setUserInput({
+                    ...userInput, experience: {
+                      ...userInput.experience, location: e.target.value,
+                    },
+                  })
+                } value={userInput?.experience?.location}
               />
               <TextField
-                label="Company Name"
-                variant="standard"
-                onChange={(e) =>
-                  setUserInput({
-                    ...userInput,
-                    experience: {
-                      ...userInput.experience,
-                      company: e.target.value,
+                label="Duration" variant="standard"
+                onChange={(e) =>setUserInput({
+                    ...userInput,experience: {
+                      ...userInput.experience, duration: e.target.value,
                     },
                   })
-                }
-                value={userInput?.experience?.company}
-              />
-              <TextField
-                label="Location"
-                variant="standard"
-                onChange={(e) =>
-                  setUserInput({
-                    ...userInput,
-                    experience: {
-                      ...userInput.experience,
-                      location: e.target.value,
-                    },
-                  })
-                }
-                value={userInput?.experience?.location}
-              />
-              <TextField
-                label="Duration"
-                variant="standard"
-                onChange={(e) =>
-                  setUserInput({
-                    ...userInput,
-                    experience: {
-                      ...userInput.experience,
-                      duration: e.target.value,
-                    },
-                  })
-                }
-                value={userInput?.experience?.duration}
+                } value={userInput?.experience?.duration}
               />
             </div>
 
@@ -313,16 +291,12 @@ function Edit({ resumeId }) {
 
             <div spacing={2}>
               <TextField
-                label="add skill"
-                varient="standard"
-                id="standard-basic"
+                label="add skill" varient="standard" id="standard-basic"
               />
               <Button
                 sx={{ maxWidth: '40px' }}
-                className="me-3 mt-4"
-                variant="text"
-              >
-                Add{' '}
+                className="me-3 mt-4"variant="text"
+              > Add{' '}
               </Button>
             </div>
 
@@ -334,8 +308,7 @@ function Edit({ resumeId }) {
               {userInput?.skills?.length > 0 &&
                 userInput?.skills.map((skill) => (
                   <span
-                    className="btn btn-primary d-flex justify-content-between
-                          align-items-center"
+                    className="btn btn-primary d-flex justify-content-between align-items-center"
                   >
                     {skill}
                     <button className="btn text-light fs-5">
@@ -357,9 +330,7 @@ function Edit({ resumeId }) {
                 // fullWidth
                 value={userInput.summary}
                 onChange={(e) =>
-                  setUserInput({
-                    ...userInput,
-                    summary: e.target.value,
+                  setUserInput({...userInput, summary: e.target.value,
                   })
                 }
               />
