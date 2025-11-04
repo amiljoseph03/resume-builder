@@ -49,6 +49,24 @@ function Edit({ resumeId }) {
     resumeId && getEditResumeDetails();
   }, [resumeId]);
 
+  // add skill edit
+
+  const [userSkill, setUserSkill] = React.useState('');
+
+  //addskill
+  const addskill = () => {
+    if (userSkill) {
+      if (userInput.skills.includes(userSkill)) {
+        alert('skill already exist, add anotjer skill');
+      } else {
+        setUserInput({
+          ...userInput,
+          skills: [...userInput.skills, userSkill],
+        });
+      }
+    }
+  };
+
   return (
     <div>
       <Button onClick={handleOpen} className="btn text-primary fs-2">
@@ -69,50 +87,66 @@ function Edit({ resumeId }) {
             <h3>Personal detials</h3>
             <div className="d-flex row p-3">
               <TextField
-                label="Full Name" variant="standard"
+                label="Full Name"
+                variant="standard"
                 //retrive input data
                 onChange={(e) =>
                   setUserInput({
-                    ...userInput,personalDetails: {
-                      ...userInput.personalDetails, name: e.target.value,
+                    ...userInput,
+                    personalDetails: {
+                      ...userInput.personalDetails,
+                      name: e.target.value,
                     },
                   })
-                }value={userInput?.personalDetails?.name}
+                }
+                value={userInput?.personalDetails?.name}
               />
 
               <TextField
-                label="Job Title" variant="standard"
+                label="Job Title"
+                variant="standard"
                 onChange={(e) =>
                   setUserInput({
-                    ...userInput, personalDetails: {
-                      ...userInput.personalDetails, jobTitle: e.target.value,
+                    ...userInput,
+                    personalDetails: {
+                      ...userInput.personalDetails,
+                      jobTitle: e.target.value,
                     },
                   })
-                } value={userInput?.personalDetails?.jobTitle}
+                }
+                value={userInput?.personalDetails?.jobTitle}
               />
               <TextField
-                label="location" variant="standard"
+                label="location"
+                variant="standard"
                 onChange={(e) =>
                   setUserInput({
-                    ...userInput,personalDetails: {
-                      ...userInput.personalDetails,location: e.target.value,
+                    ...userInput,
+                    personalDetails: {
+                      ...userInput.personalDetails,
+                      location: e.target.value,
                     },
                   })
-                } value={userInput?.personalDetails?.location}
+                }
+                value={userInput?.personalDetails?.location}
               />
             </div>
 
             <h3>Contact detials</h3>
             <div className="d-flex row p-3">
               <TextField
-                label="Email" variant="standard"
+                label="Email"
+                variant="standard"
                 onChange={(e) =>
                   setUserInput({
-                    ...userInput, personalDetails: {
-                      ...userInput.personalDetails, email: e.target.value,
+                    ...userInput,
+                    personalDetails: {
+                      ...userInput.personalDetails,
+                      email: e.target.value,
                     },
                   })
-                }value={userInput?.personalDetails?.email}
+                }
+                value={userInput?.personalDetails?.email}
               />
               <TextField
                 label="Phone"
@@ -189,70 +223,106 @@ function Edit({ resumeId }) {
                 value={userInput?.education?.course}
               />
               <TextField
-                label="College" variant="standard"
+                label="College"
+                variant="standard"
                 onChange={(e) =>
-                  setUserInput({...userInput,
+                  setUserInput({
+                    ...userInput,
                     education: {
-                      ...userInput.education, college: e.target.value,
+                      ...userInput.education,
+                      college: e.target.value,
                     },
                   })
-                }value={userInput?.education?.college}
+                }
+                value={userInput?.education?.college}
               />
               <TextField
-                label="University" variant="standard"
+                label="University"
+                variant="standard"
                 onChange={(e) =>
-                  setUserInput({...userInput, education: {
-                      ...userInput.education, university: e.target.value,
+                  setUserInput({
+                    ...userInput,
+                    education: {
+                      ...userInput.education,
+                      university: e.target.value,
                     },
                   })
-                } value={userInput?.education?.university}
+                }
+                value={userInput?.education?.university}
               />
               <TextField
-                label="Year of Passout" variant="standard"
+                label="Year of Passout"
+                variant="standard"
                 onChange={(e) =>
-                  setUserInput({ ...userInput,education: {
-                      ...userInput.education, year: e.target.value,
+                  setUserInput({
+                    ...userInput,
+                    education: {
+                      ...userInput.education,
+                      year: e.target.value,
                     },
                   })
-                } value={userInput?.education?.year}
+                }
+                value={userInput?.education?.year}
               />
             </div>
 
             <h3>Professional detials</h3>
             <div className="d-flex row p-3">
               <TextField
-                label="Job/Internship"  variant="standard"
-                onChange={(e) =>setUserInput({
-                    ...userInput,experience: {
-                      ...userInput.experience,job: e.target.value,
+                label="Job/Internship"
+                variant="standard"
+                onChange={(e) =>
+                  setUserInput({
+                    ...userInput,
+                    experience: {
+                      ...userInput.experience,
+                      job: e.target.value,
                     },
                   })
-                }value={userInput?.experience?.job}
-              />
-              <TextField label="Company Name" variant="standard"
-                onChange={(e) =>setUserInput({
-                    ...userInput,experience: {
-                      ...userInput.experience,company: e.target.value,
-                    },
-                  })
-                }value={userInput?.experience?.company}
-              />
-              <TextField label="Location"variant="standard"
-                onChange={(e) =>setUserInput({
-                    ...userInput, experience: {
-                      ...userInput.experience, location: e.target.value,
-                    },
-                  })
-                } value={userInput?.experience?.location}
+                }
+                value={userInput?.experience?.job}
               />
               <TextField
-                label="Duration" variant="standard"
-                onChange={(e) =>setUserInput({
-                    ...userInput,experience: {
-                      ...userInput.experience, duration: e.target.value,
+                label="Company Name"
+                variant="standard"
+                onChange={(e) =>
+                  setUserInput({
+                    ...userInput,
+                    experience: {
+                      ...userInput.experience,
+                      company: e.target.value,
                     },
                   })
-                } value={userInput?.experience?.duration}
+                }
+                value={userInput?.experience?.company}
+              />
+              <TextField
+                label="Location"
+                variant="standard"
+                onChange={(e) =>
+                  setUserInput({
+                    ...userInput,
+                    experience: {
+                      ...userInput.experience,
+                      location: e.target.value,
+                    },
+                  })
+                }
+                value={userInput?.experience?.location}
+              />
+              <TextField
+                label="Duration"
+                variant="standard"
+                onChange={(e) =>
+                  setUserInput({
+                    ...userInput,
+                    experience: {
+                      ...userInput.experience,
+                      duration: e.target.value,
+                    },
+                  })
+                }
+                value={userInput?.experience?.duration}
               />
             </div>
 
@@ -260,12 +330,20 @@ function Edit({ resumeId }) {
 
             <div spacing={2}>
               <TextField
-                label="add skill" varient="standard" id="standard-basic"
+                label="add skill"
+                varient="standard"
+                id="standard-basic"
+                onChange={(e) => setUserSkill(e.target.value)}
+                value={userSkill}
               />
-              <Button
+
+              <Button onClick={addskill}
                 sx={{ maxWidth: '40px' }}
-                className="me-3 mt-4"variant="text"
-              > Add{' '}
+                className="me-3 mt-4"
+                variant="text"
+              >
+                {' '}
+                Add{' '}
               </Button>
             </div>
 
@@ -276,9 +354,7 @@ function Edit({ resumeId }) {
             <div className="d-flex justify-content-between">
               {userInput?.skills?.length > 0 &&
                 userInput?.skills.map((skill) => (
-                  <span
-                    className="btn btn-primary d-flex justify-content-between align-items-center"
-                  >
+                  <span className="btn btn-primary d-flex justify-content-between align-items-center">
                     {skill}
                     <button className="btn text-light fs-5">
                       <RxCross2 />
@@ -290,7 +366,8 @@ function Edit({ resumeId }) {
             <h3>Professional Summary</h3>
             <div className="d-flex row p-3">
               <TextField
-                id="standard-multiline-static" label="Write a short summary"
+                id="standard-multiline-static"
+                label="Write a short summary"
                 multiline
                 rows={4}
                 // defaultValue="EG: I am a passionate developer..."
@@ -298,8 +375,7 @@ function Edit({ resumeId }) {
                 // fullWidth
                 value={userInput.summary}
                 onChange={(e) =>
-                  setUserInput({...userInput, summary: e.target.value,
-                  })
+                  setUserInput({ ...userInput, summary: e.target.value })
                 }
               />
             </div>
