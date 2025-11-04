@@ -337,7 +337,7 @@ function Edit({ resumeId }) {
                     className="btn btn-primary d-flex justify-content-between
                           align-items-center"
                   >
-                    Skills
+                    {skill}
                     <button className="btn text-light fs-5">
                       <RxCross2 />
                     </button>
@@ -352,9 +352,10 @@ function Edit({ resumeId }) {
                 label="Write a short summary"
                 multiline
                 rows={4}
-                defaultValue="EG: I am a passionate developer..."
+                // defaultValue="EG: I am a passionate developer..."
                 variant="standard"
-                fullWidth
+                // fullWidth
+                value={userInput.summary}
                 onChange={(e) =>
                   setUserInput({
                     ...userInput,
