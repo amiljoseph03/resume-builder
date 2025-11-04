@@ -85,6 +85,8 @@ function Edit({ resumeId, setUpdateResume }) {
       handleClose();
       setUpdateResume(result?.data)
 
+       swal('Updated successfully');
+
     } catch (err) {
       console.log(err);
     }
