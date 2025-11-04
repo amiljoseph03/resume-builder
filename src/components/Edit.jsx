@@ -206,46 +206,32 @@ function Edit({ resumeId }) {
                 value={userInput?.education?.course}
               />
               <TextField
-                label="College"
-                variant="standard"
+                label="College" variant="standard"
                 onChange={(e) =>
-                  setUserInput({
-                    ...userInput,
+                  setUserInput({...userInput,
                     education: {
-                      ...userInput.education,
-                      college: e.target.value,
+                      ...userInput.education, college: e.target.value,
                     },
                   })
-                }
-                value={userInput?.education?.college}
+                }value={userInput?.education?.college}
               />
               <TextField
-                label="University"
-                variant="standard"
+                label="University" variant="standard"
                 onChange={(e) =>
-                  setUserInput({
-                    ...userInput,
-                    education: {
-                      ...userInput.education,
-                      university: e.target.value,
+                  setUserInput({...userInput, education: {
+                      ...userInput.education, university: e.target.value,
                     },
                   })
-                }
-                value={userInput?.education?.university}
+                } value={userInput?.education?.university}
               />
               <TextField
-                label="Year of Passout"
-                variant="standard"
+                label="Year of Passout" variant="standard"
                 onChange={(e) =>
-                  setUserInput({
-                    ...userInput,
-                    education: {
-                      ...userInput.education,
-                      year: e.target.value,
+                  setUserInput({ ...userInput,education: {
+                      ...userInput.education, year: e.target.value,
                     },
                   })
-                }
-                value={userInput?.education?.year}
+                } value={userInput?.education?.year}
               />
             </div>
 
@@ -321,8 +307,7 @@ function Edit({ resumeId }) {
             <h3>Professional Summary</h3>
             <div className="d-flex row p-3">
               <TextField
-                id="standard-multiline-static"
-                label="Write a short summary"
+                id="standard-multiline-static" label="Write a short summary"
                 multiline
                 rows={4}
                 // defaultValue="EG: I am a passionate developer..."
