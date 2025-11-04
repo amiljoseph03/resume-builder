@@ -12,6 +12,7 @@ import { getHistoryAPI, deleteHistoryAPI } from '../services/allAPI';
 function History() {
 
   const[resume,setResume]=useState([])
+
   const getHistory = async()=>{
     try{
       const result = await getHistoryAPI()
@@ -50,7 +51,7 @@ function History() {
           {resume.length>0?(
             resume.map((item,index)=>(
           
-          <div className="col-md-4">
+          <div className="col-md-4" key={index}>
             <Paper elevation={3} sx={{ my: 5, p: 5, textAlign: 'center' }}>
               <div className="d-flex align-items-center justify-content-evenly ">
                 <h6>

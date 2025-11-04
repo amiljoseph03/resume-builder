@@ -1,8 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { FaEdit } from 'react-icons/fa';
-import Button from '@mui/material/Button'; 
-
-
+import Button from '@mui/material/Button';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -12,49 +10,44 @@ import { RxCross2 } from 'react-icons/rx';
 
 import { getResumeAPI } from '../services/allAPI';
 
-
-
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 600,
-  maxHeight:"80vh",
+  maxHeight: '80vh',
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
 
-  overflowY:"auto",
+  overflowY: 'auto',
 };
 
-
-
-
-function Edit({resumeId}) {
-  console.log(resumeId)
-
+function Edit({ resumeId }) {
+  console.log(resumeId);
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const[userInput,setUserInput]=React.useState({})
+  const [userInput, setUserInput] = React.useState({});
 
   // get data for edit
-  const getResumeDetails=async()=>{
-    try{
-      const result = await getResumeAPI(resumeId)
-
-    }catch(err){
-      console.log(err)
+  const getEditResumeDetails = async () => {
+    try {
+      const result = await getResumeAPI(resumeId);
+      console.log(result)
+      setUserInput(result?.data)
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
 
-React.useEffect(()=>{
-  resumeId && getResumeDetails()
-},[resumeId])
+  React.useEffect(() => {
+    resumeId && getEditResumeDetails();
+  }, [resumeId]);
 
   return (
     <div>
@@ -74,41 +67,53 @@ React.useEffect(()=>{
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             <h3>Personal detials</h3>
-            {/* <div className="d-flex row p-3"> */}
-              {/* <TextField
-                id="standard-basic"
-                label="Full name"
-                variant="standard"
-              />
-              <TextField
-                id="standard-basic"
-                label="job title"
-                variant="standard"
-              />
-              <TextField
-                id="standard-basic"
-                label="location"
-                variant="standard"
-              />
-            </div> */}
+            <div className="d-flex row p-3">
+           <TextField
+                          label="Full Name"
+                          variant="standard"
+                          //retrive input data
+                          onChange={(e) =>
+                            setUserInput({
+                              ...userInput,
+                              personalDetails: {
+                                ...userInput.personalDetails,
+                                name: e.target.value,
+                              },
+                            })
+                          }
+                          value={userInput?.personalDetails?.name}
+                        />
 
-              <TextField
-                            label="Full Name"
-                            variant="standard"
-                            //retrive input data
-                            onChange={(e) =>
-                              setUserInput({
-                                ...userInput,
-                                personalDetails: {
-                                  ...userInput.personalDetails,
-                                  name: e.target.value,
-                                },
-                              })
-                            }
-                            value={userInput?.personalDetails?.name}
-                          />
 
-                          
+                         <TextField
+                                        label="Job Title"
+                                        variant="standard"
+                                        onChange={(e) =>
+                                          setUserInput({
+                                            ...userInput,
+                                            personalDetails: {
+                                              ...userInput.personalDetails,
+                                              jobTitle: e.target.value,
+                                            },
+                                          })
+                                        }
+                                        value={userInput?.personalDetails?.jobTitle}
+                                      />
+                                      <TextField
+                                        label="location" variant="standard"
+                                        onChange={(e) =>
+                                          setUserInput({ ...userInput,
+                                           
+                                            personalDetails: {
+                                              ...userInput.personalDetails,
+                                              location: e.target.value,
+                                            },
+                                          })
+                                        }
+                                        value={userInput?.personalDetails?.location}
+                                      />
+               </div>
+          
 
             <h3>Contact detials</h3>
             <div className="d-flex row p-3">
@@ -201,17 +206,18 @@ React.useEffect(()=>{
             <h5>Added Skills : </h5>
 
             <div className="d-flex justify-content-between">
-              
-              {userInput?.skills?.length>0 && userInput?.skills.map(skill=>(
-              <span
-                className="btn btn-primary d-flex justify-content-between
+              {userInput?.skills?.length > 0 &&
+                userInput?.skills.map((skill) => (
+                  <span
+                    className="btn btn-primary d-flex justify-content-between
                           align-items-center"
-              >
-                Skills
-                <button className="btn text-light fs-5">
-                  <RxCross2 />
-                </button>
-              </span>)) }
+                  >
+                    Skills
+                    <button className="btn text-light fs-5">
+                      <RxCross2 />
+                    </button>
+                  </span>
+                ))}
             </div>
 
             <h3>Professional Summary</h3>
@@ -221,9 +227,12 @@ React.useEffect(()=>{
                 label="write a short summary"
                 multiline
                 rows={4}
-                defaultValue="EG: I M A PASSIONATE............"
+                defaultvalue="EG: I am a passionate developer............"
                 variant="standard"
-                VALUE=""
+                value={userInput?.summary}
+                onChange={(e) =>
+                  setUserInput({ ...userInput, summary: e.target.value })
+                }
               />
             </div>
             <button className=" btn  fs-5">Update</button>
@@ -234,4 +243,4 @@ React.useEffect(()=>{
   );
 }
 
-export default Edit
+export default Edit;
