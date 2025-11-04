@@ -8,7 +8,7 @@ import Modal from '@mui/material/Modal';
 import { TextField } from '@mui/material';
 import { RxCross2 } from 'react-icons/rx';
 
-import { getResumeAPI } from '../services/allAPI';
+import { editResumeAPI, getResumeAPI } from '../services/allAPI';
 
 const style = {
   position: 'absolute',
@@ -65,6 +65,7 @@ function Edit({ resumeId }) {
         });
       }
     }
+    setUserSkill("")
   };
 
   //remove skill
@@ -75,6 +76,25 @@ function Edit({ resumeId }) {
       skills: userInput.skills.filter((item) => item != skill),
     });
   };
+
+
+
+
+
+
+
+  //update
+
+const handleUpdate=async()=>{
+  try{
+    const result= await editResumeAPI(userInput?.id,userInput)
+    console.log(result)
+    handleClose()
+
+  }catch(err){
+    console.log(err)
+  }
+}
 
   return (
     <div>
@@ -392,7 +412,8 @@ function Edit({ resumeId }) {
                 }
               />
             </div>
-            <button className=" btn  fs-5">Update</button>
+            <button 
+            onClick={handleUpdate} className=" btn  fs-5">Update</button>
           </Typography>
         </Box>
       </Modal>
