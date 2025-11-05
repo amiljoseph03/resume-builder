@@ -393,6 +393,8 @@ import { RxCross2 } from 'react-icons/rx';
 import { addResumeAPI } from '../services/allAPI';
 import swal from 'sweetalert';
 
+
+
 function Steps({ userInput, setUserInput, setFinish, setresumeId }) {
   // console.log(userInput);
 
