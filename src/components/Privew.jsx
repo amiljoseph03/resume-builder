@@ -160,7 +160,10 @@ import Edit from './Edit';
 
 
 import html2canvas from 'html2canvas';
-import {jsPDF} from "jsPDF"
+
+import jsPDF from 'jspdf';
+
+
 import { addDownloadHistoryAPI } from '../services/allAPI';
 // import { useState } from 'react';
 import React, { useState } from 'react';
